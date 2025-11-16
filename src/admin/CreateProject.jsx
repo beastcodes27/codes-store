@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useProjectStore from "../../hooks/useProjectStore";
+import useProjectStore from "../hooks/useProjectStore";
 import { v4 as uuidv4 } from 'uuid';
 
 function CreateProject() {

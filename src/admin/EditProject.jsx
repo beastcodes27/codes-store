@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useProjectStore from "../../hooks/useProjectStore";
+import useProjectStore from "../hooks/useProjectStore";
 
 function EditProject() {
   const { id } = useParams();
