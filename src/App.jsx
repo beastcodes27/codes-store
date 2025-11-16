@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Project from "./pages/Project.jsx";
+import ProjectDetails from "./pages/ProjectDetails.jsx";
 import AdminLayout from "./admin/AdminLayout";
 import Admin from "./admin/Admin";
 import CreateProject from "./admin/CreateProject";
@@ -16,7 +16,7 @@ function App() {
         <main className="container mx-auto p-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/project/:id" element={<Project />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>
