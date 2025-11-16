@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -16,7 +15,7 @@ const useProjectStore = create(
         })),
       deleteProject: (id) =>
         set((state) => ({ projects: state.projects.filter((p) => p.id !== id) })),
-    })),
+    }),
     { name: 'project-storage' }
   )
 );
