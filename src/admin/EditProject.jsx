@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useProjectStore from "../hooks/useProjectStore";
+import useProjectStore from "../../hooks/useProjectStore";
 
 function EditProject() {
   const { id } = useParams();
@@ -32,7 +32,7 @@ function EditProject() {
       id,
       title,
       description,
-      price,
+      price: parseFloat(price),
       image,
       demoLink,
       downloadLink,
@@ -41,25 +41,50 @@ function EditProject() {
     navigate("/admin");
   };
 
-  if (!project) {
-    return <div>Project not found</div>;
-  }
+  if (!project) return <p>Project not found!</p>;
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">Edit Project</h1>
-        <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-700 p-2 rounded-md" />
-                <input type="number" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} className="bg-gray-700 p-2 rounded-md" />
-                <input type="text" placeholder="Image URL" value={image} onChange={(e) => setImage(e.target.value)} className="bg-gray-700 p-2 rounded-md" />
-                <input type="text" placeholder="Demo Link" value={demoLink} onChange={(e) => setDemoLink(e.target.value)} className="bg-gray-700 p-2 rounded-md" />
-                <input type="text" placeholder="Download Link" value={downloadLink} onChange={(e) => setDownloadLink(e.target.value)} className="bg-gray-700 p-2 rounded-md" />
-            </div>
-            <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} className="bg-gray-700 p-2 rounded-md w-full mt-4" rows="4"></textarea>
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors mt-4">Update Project</button>
-        </form>
-    </div>
+    <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold mb-6">Edit Project</h1>
+      <div className="grid grid-cols-1 gap-6">
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="p-2 rounded-md bg-gray-700"
+        />
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="p-2 rounded-md bg-gray-700 h-32"
+        />
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className="p-2 rounded-md bg-gray-700"
+        />
+        <input
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          className="p-2 rounded-md bg-gray-700"
+        />
+        <input
+          type="text"
+          value={demoLink}
+          onChange={(e) => setDemoLink(e.target.value)}
+          className="p-2 rounded-md bg-gray-700"
+        />
+        <input
+          type="text"
+          value={downloadLink}
+          onChange={(e) => setDownloadLink(e.target.value)}
+          className="p-2 rounded-md bg-gray-700"
+        />
+      </div>
+      <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors mt-6">Update Project</button>
+    </form>
   );
 }
 
