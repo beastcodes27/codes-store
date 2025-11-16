@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Project from "./pages/Project";
+import Project from "./pages/Project.jsx";
 import AdminLayout from "./admin/AdminLayout";
 import Admin from "./admin/Admin";
 import CreateProject from "./admin/CreateProject";
