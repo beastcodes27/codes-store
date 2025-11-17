@@ -8,10 +8,10 @@ function AdminLogin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Placeholder for admin login logic
     // In a real app, you'd verify credentials and set a token
-    if (email === 'admin@example.com' && password === 'admin') {
+    if (email === 'beastcodes27@gmail.com' && password === 'BEAST27') {
       localStorage.setItem('isAdmin', 'true');
+      window.dispatchEvent(new Event('storage')); // Manually trigger storage event to update header
       navigate('/admin');
     } else {
       alert('Invalid admin credentials');
